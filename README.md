@@ -7,7 +7,7 @@ An implemenation of ramda library for Go programmers.
 $ go get github.com/azbshiri/ramda
 ```
 
-# Usage
+# Logic
 ```go
 import "github.com/azbshiri/ramda"
 
@@ -18,10 +18,20 @@ func main() {
 			T(), Always("nothing special happens at %d°C"),
 		})
     
-    fmt.Println(waterTemp(0)) # water freezes at 0°C
-    fmt.Println(waterTemp(100)) # water boils at 100°C
-    fmt.Println(waterTemp(50)) # nothing special happens at 50°C
-    fmt.Println(waterTemp(70)) # nothing special happens at 70°C
+    fmt.Println(waterTemp(0)) // water freezes at 0°C
+    fmt.Println(waterTemp(100)) // water boils at 100°C
+    fmt.Println(waterTemp(50)) // nothing special happens at 50°C
+    fmt.Println(waterTemp(70)) // nothing special happens at 70°C
+}
+```
+
+# Slice
+```go
+import "github.com/azbshiri/ramda"
+
+func main() {
+    fmt.Println(Head([]string{"a", "b"})) // a
+    fmt.Println(Head([]int{1, 2, 3})) // 1
 }
 ```
 
