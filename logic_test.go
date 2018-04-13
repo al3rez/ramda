@@ -20,13 +20,13 @@ func TestAnd(t *testing.T) {
 }
 
 func TestCond(t *testing.T) {
-	fn := NewCond(Cond{
-		Equals(0), Always("water freezes at 0°C"),
-		Equals(100), Always("water boils at 100°C"),
-		T(), Always("nothing special happens at %d°C"),
-	})
-
 	t.Run("water temperature", func(t *testing.T) {
+		fn := NewCond(Cond{
+			Equals(0), Always("water freezes at 0°C"),
+			Equals(100), Always("water boils at 100°C"),
+			T(), Always("nothing special happens at %d°C"),
+		})
+
 		t.Run("given 0°C", func(t *testing.T) {
 			assert.Equal(t, "water freezes at 0°C", fn(0))
 		})
@@ -35,6 +35,16 @@ func TestCond(t *testing.T) {
 		})
 		t.Run("given 100°C", func(t *testing.T) {
 			assert.Equal(t, "water boils at 100°C", fn(100))
+		})
+	})
+	t.Run("transformer", func(t *testing.T) {
+		t.Run("no match", func(t *testing.T) {
+			fn := NewCond(Cond{
+				Equals(100), Always(0),
+				T(), Always(0),
+			})
+
+			assert.Equal(t, 0, fn(100))
 		})
 	})
 }
