@@ -30,8 +30,17 @@ func main() {
 import "github.com/azbshiri/ramda"
 
 func main() {
-    fmt.Println(Head([]string{"a", "b"})) // a
-    fmt.Println(Head([]int{1, 2, 3})) // 1
+    fmt.Println(ramda.Head([]string{"a", "b"})) // a
+    fmt.Println(ramda.Head([]int{1, 2, 3})) // 1
+}
+```
+
+```go
+import "github.com/azbshiri/ramda"
+
+func main() {
+    fmt.Println(ramda.Tail([]string{"a", "b"})) // b
+    fmt.Println(ramda.Tail([]int{1, 2, 3})) // 3
 }
 ```
 
