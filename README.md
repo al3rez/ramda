@@ -46,4 +46,5 @@ func main() {
 
 # TODO
 [ ] Add exmaples in comments
+
 [ ] Implement all functions in Ramda.js
