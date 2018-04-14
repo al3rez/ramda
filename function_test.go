@@ -14,3 +14,11 @@ func TestAlways(t *testing.T) {
 		assert.Equal(t, http.Request{}, Always(http.Request{})())
 	})
 }
+
+func TestIdentity(t *testing.T) {
+	t.Run("returns the given value", func(t *testing.T) {
+		assert.Equal(t, true, Identity(true))
+		assert.Equal(t, "", Identity(""))
+		assert.Equal(t, http.Request{}, Identity(http.Request{}))
+	})
+}
