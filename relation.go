@@ -51,3 +51,36 @@ func Gt(a, b interface{}) bool {
 		return false
 	}
 }
+
+// Gte returns true if the first argument is greater than or equal to the
+// second; false otherwise.
+func Gte(a, b interface{}) bool {
+	switch v := a.(type) {
+	case int:
+		return v >= b.(int)
+	case int8:
+		return v >= b.(int8)
+	case int16:
+		return v >= b.(int16)
+	case int32:
+		return v >= b.(int32)
+	case int64:
+		return v >= b.(int64)
+	case uint:
+		return v >= b.(uint)
+	case uint8:
+		return v >= b.(uint8)
+	case uint16:
+		return v >= b.(uint16)
+	case uint64:
+		return v >= b.(uint64)
+	case uintptr:
+		return v >= b.(uintptr)
+	case float32:
+		return v >= b.(float32)
+	case float64:
+		return v >= b.(float64)
+	default:
+		return false
+	}
+}
