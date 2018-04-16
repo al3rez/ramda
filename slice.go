@@ -90,3 +90,114 @@ func Tail(s interface{}) interface{} {
 		return nil
 	}
 }
+
+// IndexOf returns the position of the first occurrence of an item in an array,
+// or -1 if the item is not included in the array. Equals is used to determine
+// equality.
+func IndexOf(a, s interface{}) int {
+	switch v := s.(type) {
+	case []bool:
+		for i, e := range v {
+			if Equals(a.(bool), e)().(bool) {
+				return i
+			}
+		}
+	case []string:
+		for i, e := range v {
+			if Equals(a.(string), e)().(bool) {
+				return i
+			}
+		}
+	case []int:
+		for i, e := range v {
+			if Equals(a.(int), e)().(bool) {
+				return i
+			}
+		}
+	case []int8:
+		for i, e := range v {
+			if Equals(a.(int8), e)().(bool) {
+				return i
+			}
+		}
+	case []int16:
+		for i, e := range v {
+			if Equals(a.(int16), e)().(bool) {
+				return i
+			}
+		}
+	case []int32:
+		for i, e := range v {
+			if Equals(a.(int32), e)().(bool) {
+				return i
+			}
+		}
+	case []int64:
+		for i, e := range v {
+			if Equals(a.(int64), e)().(bool) {
+				return i
+			}
+		}
+	case []uint:
+		for i, e := range v {
+			if Equals(a.(uint), e)().(bool) {
+				return i
+			}
+		}
+	case []uint8:
+		for i, e := range v {
+			if Equals(a.(uint8), e)().(bool) {
+				return i
+			}
+		}
+	case []uint16:
+		for i, e := range v {
+			if Equals(a.(uint16), e)().(bool) {
+				return i
+			}
+		}
+	case []uint32:
+		for i, e := range v {
+			if Equals(a.(uint32), e)().(bool) {
+				return i
+			}
+		}
+	case []uint64:
+		for i, e := range v {
+			if Equals(a.(uint64), e)().(bool) {
+				return i
+			}
+		}
+	case []uintptr:
+		for i, e := range v {
+			if Equals(a.(uintptr), e)().(bool) {
+				return i
+			}
+		}
+	case []float32:
+		for i, e := range v {
+			if Equals(a.(float32), e)().(bool) {
+				return i
+			}
+		}
+	case []float64:
+		for i, e := range v {
+			if Equals(a.(float64), e)().(bool) {
+				return i
+			}
+		}
+	case []complex64:
+		for i, e := range v {
+			if Equals(a.(complex64), e)().(bool) {
+				return i
+			}
+		}
+	case []complex128:
+		for i, e := range v {
+			if Equals(a.(complex128), e)().(bool) {
+				return i
+			}
+		}
+	}
+	return -1
+}

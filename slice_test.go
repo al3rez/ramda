@@ -130,3 +130,60 @@ func TestTail(t *testing.T) {
 		assert.Equal(t, nil, Tail([]http.Request{http.Request{}, http.Request{}}))
 	})
 }
+
+func TestIndexOf(t *testing.T) {
+	t.Run("[]bool", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(true, []bool{true, false}))
+	})
+	t.Run("[]int", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(1, []int{1, 2}))
+	})
+	t.Run("[]string", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf("a", []string{"a", "b"}))
+	})
+	t.Run("[]int8", func(t *testing.T) {
+		assert.Equal(t, 1, IndexOf(int8(2), []int8{1, 2}))
+	})
+	t.Run("[]int16", func(t *testing.T) {
+		assert.Equal(t, 1, IndexOf(int16(2), []int16{1, 2}))
+	})
+	t.Run("[]int32", func(t *testing.T) {
+		assert.Equal(t, 1, IndexOf(int32(2), []int32{1, 2}))
+	})
+	t.Run("[]int64", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(int64(1), []int64{1, 2}))
+	})
+	t.Run("[]uint", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(uint(1), []uint{1, 2}))
+	})
+	t.Run("[]uint8", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(uint8(1), []uint8{1, 2}))
+	})
+	t.Run("[]uint16", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(uint16(1), []uint16{1, 2}))
+	})
+	t.Run("[]uint32", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(uint32(1), []uint32{1, 2}))
+	})
+	t.Run("[]uint64", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(uint64(1), []uint64{1, 2}))
+	})
+	t.Run("[]uintptr", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(uintptr(1), []uintptr{1, 2}))
+	})
+	t.Run("[]float32", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(float32(1), []float32{1, 2}))
+	})
+	t.Run("[]float64", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(float64(1), []float64{1, 2}))
+	})
+	t.Run("[]complex64", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(complex64(1), []complex64{1, 2}))
+	})
+	t.Run("[]complex128", func(t *testing.T) {
+		assert.Equal(t, 0, IndexOf(complex128(1), []complex128{1, 2}))
+	})
+	t.Run("no match", func(t *testing.T) {
+		assert.Equal(t, -1, IndexOf(complex128(4), []complex128{1, 2}))
+	})
+}
