@@ -59,6 +59,9 @@ func TestHead(t *testing.T) {
 	t.Run("[]complex128", func(t *testing.T) {
 		assert.Equal(t, complex128(1), Head([]complex128{1, 2}))
 	})
+	t.Run("string", func(t *testing.T) {
+		assert.Equal(t, "1", Head("123"))
+	})
 	t.Run("[]interface{}", func(t *testing.T) {
 		fn1 := Always(true)
 		fn2 := Always(false)

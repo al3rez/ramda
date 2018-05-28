@@ -40,6 +40,8 @@ func Head(s interface{}) interface{} {
 		return v[0]
 	case []interface{}:
 		return v[0]
+	case string:
+		return string(v[0])
 	default:
 		return nil
 	}
